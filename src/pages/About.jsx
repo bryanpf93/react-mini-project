@@ -2,8 +2,7 @@ function About(){
     return(
         <div className="about-container">
         <h1>KANBAN</h1>
-        <p>This project is a web-based task management application using the Kanban method, which allows users to organize work into different stages to improve productivity and task tracking.</p>
-        <div>User can:</div>
+        <div>This project is a web-based task management application using the Kanban method, which allows users to organize work into different stages to improve productivity and task tracking.</div>
         <ul>
             <li>Create new tasks</li>
             <li>View existing tasks</li>

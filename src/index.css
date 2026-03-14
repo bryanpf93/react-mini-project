@@ -76,7 +76,7 @@ header {
 }
 
 .sidebar nav a.active {
-  color: #f5c518;
+  color: #63C174;
 }
 
 .divider {
@@ -109,12 +109,24 @@ header {
   justify-content: center;
   align-items: center;
   font-weight: 500;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button {
+  padding: 6px 12px;
+  margin: 5px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid black;
 }
 
 .card:hover{
   scale: 1.01;
-  transform: scale(1.01);
+  transform: scale(1.02);
 }
 
 .task-details {
@@ -131,6 +143,7 @@ header {
   align-items: center;
   font-weight: 500;
   text-align: center;
+  background-color: white;
 }
 
 .about-container {
@@ -138,4 +151,5 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: start;
+  padding-bottom: 100px;
 }

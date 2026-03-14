@@ -5,9 +5,9 @@ function SidebaR(){
     return(
         <div className="sidebar">
             <nav>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/">HOME</NavLink>
                 <p></p>
-                <NavLink to="/about">About</NavLink>
+                <NavLink to="/about">ABOUT</NavLink>
             </nav>
         </div>
     )
