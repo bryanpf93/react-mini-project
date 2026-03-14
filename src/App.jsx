@@ -8,6 +8,7 @@ import tasks from "./data/tasks.json"
 import About from "./pages/About"
 import TaskDetails from "./pages/TaskDetails"
 import NotFound from "./pages/NotFound"
+import AddTask from "./pages/AddTask"
 
 
 
@@ -44,7 +45,7 @@ function App() {
 
     const newList = [newTaskWithId, ...tasksToDisplay]
 
-    setMovieToDisplay(newList)
+    settasksToDisplay (newList)
 
   }
 
@@ -60,15 +61,19 @@ function App() {
     <>
       <Header></Header>
       <SidebaR></SidebaR>
-
+      
+      
       <div className="page-container">
 
         <Routes>
           <Route
             path="/"
             element={
-
+              <>
+              <AddTask onCreate={createTask}></AddTask>
               <div className="kanban-board">
+
+
 
                 <div className="todo-column">
                   <TaskList
@@ -96,6 +101,7 @@ function App() {
                 
 
               </div>
+              </>
             }
           />
 

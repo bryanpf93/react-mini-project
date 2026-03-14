@@ -9,7 +9,7 @@ function TaskDetails ({tasksArray}){
 console.log("tasksArray:", tasksArray)
 
     const task = tasksArray.find((taskObj) => {
-        return taskObj.id === taskId
+        return taskObj.id === parseInt(taskId)
     })
 
      if (!task) {
