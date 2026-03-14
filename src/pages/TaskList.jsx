@@ -1,12 +1,9 @@
-import "./ListTasks.css"
 import TaskCard from "../components/TaskCard"
 
-function ListTasks({tasksArray,onDelete}){
-
-   
+function TaskList({ tasksArray, onDelete}){
 
     return(
-    <div className="tasks-container">
+        <>
         {tasksArray.map((taskObj) => {
             return (
               <TaskCard 
@@ -14,12 +11,10 @@ function ListTasks({tasksArray,onDelete}){
                 key={taskObj.id}
                 handleDelete={onDelete}
               />
-
             )
         })}
-
-    </div>
+        </>
     )
 }
 
-export default ListTasks
+export default TaskList
