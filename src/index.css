@@ -91,7 +91,6 @@ header {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: calc(100vh - 150px);
 
@@ -195,7 +194,6 @@ button {
   gap: 20px;
   height: 1150px;
   overflow-y: auto;
-  overflow: hidden;
 }
 
 .done-column {

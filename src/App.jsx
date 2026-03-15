@@ -51,6 +51,24 @@ function App() {
 
   }
 
+  const updateStatus = (taskId, newStatus) => {
+  // Recorremos todas las tareas
+  const updatedTasks = tasksToDisplay.map((task) => {
+    // Comprobamos si la tarea actual NO es la que queremos actualizar
+    if (String(task.id) !== String(taskId)) {
+      return task
+    }
+    // Si es la tarea correcta, creamos una copia con el nuevo status
+    const updatedTask = {
+      ...task,
+      status: newStatus
+    }
+    return updatedTask
+  })
+
+  // Actualizamos el estado con el nuevo array de tareas
+  settasksToDisplay(updatedTasks)
+}
 
   const deleteTasks = (taskId) => {
     const filteredTasks = tasksToDisplay.filter((task) => {
@@ -75,7 +93,7 @@ function App() {
                 <div className="add-button">
                   <button onClick={() => setShowModal(true)}>+ Add Task</button>
                 </div>
-                
+
 
                 {showModal && (
                   <div className="modal-overlay" onClick={() => setShowModal(false)}>
@@ -94,26 +112,32 @@ function App() {
                 <div className="kanban-board">
 
                   <div className="todo-column">
+                    <h3>TO DO</h3>
                     <TaskList
                       status="To Do"
                       tasksArray={tasksWithStatusToDo}
                       onDelete={deleteTasks}
+                      onUpdateStatus={updateStatus}
                     />
                   </div>
 
                   <div className="inprogress-column">
+                    <h3>IN PROGRESS</h3>
                     <TaskList
                       status="In Progress"
                       tasksArray={tasksWithStatusInProgress}
                       onDelete={deleteTasks}
+                      onUpdateStatus={updateStatus}
                     />
                   </div>
 
                   <div className="done-column">
+                    <h3>DONE</h3>
                     <TaskList
                       status="Done"
                       tasksArray={tasksWithStatusDone}
                       onDelete={deleteTasks}
+                      onUpdateStatus={updateStatus}
                     />
                   </div>
 
