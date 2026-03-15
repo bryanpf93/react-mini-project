@@ -39,10 +39,10 @@ function AddTask({onCreate}) {
         <>
             <form onSubmit={handleSubmit}>
                 <div className="form-container">
-                    <h4>ADD A TASK: </h4>
+                    <h2>ADD TASK: </h2>
 
                     <label>
-                        Title:
+                        TITLE: 
                         <input
                             name="title"
                             type="text"
@@ -53,7 +53,7 @@ function AddTask({onCreate}) {
                     </label>
 
                     <label>
-                        Description:
+                        DESCRIPTION:
                         <input
                             name="description"
                             type="text"
@@ -64,7 +64,7 @@ function AddTask({onCreate}) {
                     </label>
 
                     <label>
-                        Assigne:
+                        ASSIGNEE: 
                         <input
                             name="assignee"
                             type="text"
@@ -75,7 +75,7 @@ function AddTask({onCreate}) {
                     </label>
 
                     <label>
-                        Status:
+                        STATUS: 
                         <select
                             name="priority"
                             value={priority}

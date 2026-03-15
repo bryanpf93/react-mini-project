@@ -9,8 +9,8 @@ function TaskDetails ({tasksArray}){
 console.log("tasksArray:", tasksArray)
 
     const task = tasksArray.find((taskObj) => {
-        return taskObj.id === parseInt(taskId)
-    })
+    return String(taskObj.id) === String(taskId)
+})
 
      if (!task) {
     return (

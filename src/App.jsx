@@ -15,6 +15,8 @@ import AddTask from "./pages/AddTask"
 function App() {
 
   const [tasksToDisplay, settasksToDisplay] = useState(tasks)
+  const [showModal, setShowModal] = useState(false)
+
 
   const tasksWithStatusToDo = tasksToDisplay.filter((task) => {
     return task.status === "To Do"
@@ -45,7 +47,7 @@ function App() {
 
     const newList = [newTaskWithId, ...tasksToDisplay]
 
-    settasksToDisplay (newList)
+    settasksToDisplay(newList)
 
   }
 
@@ -61,8 +63,8 @@ function App() {
     <>
       <Header></Header>
       <SidebaR></SidebaR>
-      
-      
+
+
       <div className="page-container">
 
         <Routes>
@@ -70,37 +72,53 @@ function App() {
             path="/"
             element={
               <>
-              <AddTask onCreate={createTask}></AddTask>
-              <div className="kanban-board">
-
-
-
-                <div className="todo-column">
-                  <TaskList
-                    status="To Do"
-                    tasksArray={tasksWithStatusToDo}
-                    onDelete={deleteTasks}
-                  />
-                </div>
-
-                <div className="inprogress-column">
-                  <TaskList
-                  status="In Progress"
-                  tasksArray={tasksWithStatusInProgress}
-                  onDelete={deleteTasks}
-                />
-                </div>
-                
-                <div className="done-column">
-                  <TaskList
-                  status="Done"
-                  tasksArray={tasksWithStatusDone}
-                  onDelete={deleteTasks}
-                />
+                <div className="add-button">
+                  <button onClick={() => setShowModal(true)}>+ Add Task</button>
                 </div>
                 
 
-              </div>
+                {showModal && (
+                  <div className="modal-overlay" onClick={() => setShowModal(false)}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                      <button className="modal-close" onClick={() => setShowModal(false)}>✕</button>
+                      <AddTask onCreate={(newTask) => {
+                        createTask(newTask)
+                        setShowModal(false)
+                      }} />
+                    </div>
+                  </div>
+                )}
+
+
+
+                <div className="kanban-board">
+
+                  <div className="todo-column">
+                    <TaskList
+                      status="To Do"
+                      tasksArray={tasksWithStatusToDo}
+                      onDelete={deleteTasks}
+                    />
+                  </div>
+
+                  <div className="inprogress-column">
+                    <TaskList
+                      status="In Progress"
+                      tasksArray={tasksWithStatusInProgress}
+                      onDelete={deleteTasks}
+                    />
+                  </div>
+
+                  <div className="done-column">
+                    <TaskList
+                      status="Done"
+                      tasksArray={tasksWithStatusDone}
+                      onDelete={deleteTasks}
+                    />
+                  </div>
+
+
+                </div>
               </>
             }
           />
