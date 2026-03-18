@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-function TaskCard({ taskDetails, handleDelete, onUpdateStatus }) {
+function TaskCard({ taskDetails, onUpdateStatus }) {
     return (
         <div className="card">
             <h2>{taskDetails.title} </h2>
@@ -20,7 +20,6 @@ function TaskCard({ taskDetails, handleDelete, onUpdateStatus }) {
             }
             </p>
             <div>
-                <button onClick={() => { handleDelete(taskDetails.id) }}>DELETE</button>
                 <Link to={`/tasks/${taskDetails.id}`}>
                     <button>MORE DETAILS</button>
                 </Link>

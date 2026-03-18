@@ -1,54 +1,48 @@
-import { useState } from "react"
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-function AddTask({onCreate}) {
+function EditTask({ tasksArray, onUpdate }) {
 
-    const [title, setTitle] = useState("")
-    const [description, setDescription] = useState("")
-    const [assignee, setAssignee] = useState("")
-    const [status, setStatus] = useState("To Do")
-    const [priority, setPriority] = useState("Low")
+    const { taskId } = useParams()
+    const task = tasksArray.find((taskObj) => {
+        return String(taskObj.id) === String(taskId)
+    })
+    const navigate = useNavigate()
 
-    const today = new Date().toISOString().split("T")[0];
-    const due = new Date(today);
-    due.setDate(due.getDate() + 15);
-    const dueDate = due.toISOString().split("T")[0];
+    console.log(task)
+
+    const [title, setTitle] = useState(task.title)
+    const [description, setDescription] = useState(task.description)
+    const [assignee, setAssignee] = useState(task.assignee)
+    const [priority, setPriority] = useState(task.priority)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        const newTask = {
+        const updateTask = {
+            ...task,
             title: title,
             description: description,
             assignee: assignee,
-            status: status,
             priority: priority,
-            createdDate : today,
-            dueDate: dueDate,
         }
 
-        onCreate(newTask)
-
-        setTitle(""),
-        setDescription(""),
-        setAssignee("")
-        setStatus("To Do")
-        setPriority("Low")
+        onUpdate(updateTask)
+        navigate(`/tasks/${taskId}`)
     }
 
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <div className="form-container">
-                    <h2>ADD TASK: </h2>
+                <div className="edit-container">
+                    <h2>EDIT TASK: </h2>
 
                     <label>
-                        TITLE: 
+                        TITLE:
                         <input
                             name="title"
                             type="text"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
-                            placeholder="Title"
                         />
                     </label>
 
@@ -59,23 +53,21 @@ function AddTask({onCreate}) {
                             type="text"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
-                            placeholder="Description"
                         />
                     </label>
 
                     <label>
-                        ASSIGNEE: 
+                        ASSIGNEE:
                         <input
                             name="assignee"
                             type="text"
                             value={assignee}
                             onChange={(e) => setAssignee(e.target.value)}
-                            placeholder="Assignee"
                         />
                     </label>
 
                     <label>
-                        PRIORITY: 
+                        PRIORITY:
                         <select
                             name="priority"
                             value={priority}
@@ -87,14 +79,16 @@ function AddTask({onCreate}) {
                             <option value="High">High 🔴</option>
                         </select>
                     </label>
+                    <div>
+                        <button type="submit">SAVE CHANGES</button>
+                        <button type="button" onClick={() => navigate("/")}>CANCEL</button>
+                    </div>
 
-                    <button type="submit">ADD STUDENT</button>
                 </div>
+
             </form>
-
-
         </>
     )
 }
 
-export default AddTask
+export default EditTask

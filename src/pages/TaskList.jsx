@@ -1,6 +1,6 @@
 import TaskCard from "../components/TaskCard"
 
-function TaskList({ tasksArray, onDelete, onUpdateStatus}){
+function TaskList({ tasksArray, onUpdateStatus}){
 
     return(
         <>
@@ -9,7 +9,6 @@ function TaskList({ tasksArray, onDelete, onUpdateStatus}){
               <TaskCard 
                 taskDetails={taskObj}
                 key={taskObj.id}
-                handleDelete={onDelete}
                 onUpdateStatus={onUpdateStatus}
               />
             )

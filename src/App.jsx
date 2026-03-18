@@ -9,6 +9,7 @@ import About from "./pages/About"
 import TaskDetails from "./pages/TaskDetails"
 import NotFound from "./pages/NotFound"
 import AddTask from "./pages/AddTask"
+import EditTask from "./pages/EditTask"
 
 
 
@@ -21,6 +22,7 @@ function App() {
   const tasksWithStatusToDo = tasksToDisplay.filter((task) => {
     return task.status === "To Do"
   })
+
 
   const tasksWithStatusInProgress = tasksToDisplay.filter((task) => {
     return task.status === "In Progress"
@@ -52,23 +54,35 @@ function App() {
   }
 
   const updateStatus = (taskId, newStatus) => {
-  // Recorremos todas las tareas
-  const updatedTasks = tasksToDisplay.map((task) => {
-    // Comprobamos si la tarea actual NO es la que queremos actualizar
-    if (String(task.id) !== String(taskId)) {
-      return task
-    }
-    // Si es la tarea correcta, creamos una copia con el nuevo status
-    const updatedTask = {
-      ...task,
-      status: newStatus
-    }
-    return updatedTask
-  })
+    // Recorremos todas las tareas
+    const updatedTasks = tasksToDisplay.map((task) => {
+      // Comprobamos si la tarea actual NO es la que queremos actualizar
+      if (String(task.id) !== String(taskId)) {
+        return task
+      }
+      // Si es la tarea correcta, creamos una copia con el nuevo status
+      const updatedTask = {
+        ...task,
+        status: newStatus
+      }
+      return updatedTask
+    })
 
-  // Actualizamos el estado con el nuevo array de tareas
-  settasksToDisplay(updatedTasks)
-}
+    
+    // Actualizamos el estado con el nuevo array de tareas
+    settasksToDisplay(updatedTasks)
+
+  }
+
+  const updateTask = (updatedTask) => {
+    const updateList = tasksToDisplay.map((task) => {
+      if(String(task.id) !== String(updatedTask.id)){
+        return task
+      }
+      return updatedTask
+    })
+    settasksToDisplay(updateList)
+  }
 
   const deleteTasks = (taskId) => {
     const filteredTasks = tasksToDisplay.filter((task) => {
@@ -76,6 +90,8 @@ function App() {
     })
     settasksToDisplay(filteredTasks)
   }
+
+
 
   return (
     <>
@@ -116,7 +132,6 @@ function App() {
                     <TaskList
                       status="To Do"
                       tasksArray={tasksWithStatusToDo}
-                      onDelete={deleteTasks}
                       onUpdateStatus={updateStatus}
                     />
                   </div>
@@ -126,7 +141,6 @@ function App() {
                     <TaskList
                       status="In Progress"
                       tasksArray={tasksWithStatusInProgress}
-                      onDelete={deleteTasks}
                       onUpdateStatus={updateStatus}
                     />
                   </div>
@@ -136,7 +150,6 @@ function App() {
                     <TaskList
                       status="Done"
                       tasksArray={tasksWithStatusDone}
-                      onDelete={deleteTasks}
                       onUpdateStatus={updateStatus}
                     />
                   </div>
@@ -148,7 +161,8 @@ function App() {
           />
 
           <Route path="/about" element={<About />} />
-          <Route path="/tasks/:taskId" element={<TaskDetails tasksArray={tasksToDisplay} />} />
+          <Route path="/tasks/:taskId" element={<TaskDetails tasksArray={tasksToDisplay} onDelete={deleteTasks} />} />
+          <Route path="/tasks/:taskId/edit" element={<EditTask tasksArray={tasksToDisplay} onUpdate={updateTask} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
