@@ -1,16 +1,47 @@
-# React + Vite
+# KANBAN
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![DEMO](assets/images/Animation.gif)
 
-Currently, two official plugins are available:
+This project is a **web-based task management application** using the **Kanban method**, which allows users to organize work into different stages to improve productivity and task tracking.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- Create new tasks
+- View existing tasks
+- Organize tasks according to their status
+- View the details of each task
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The application is developed using **React** for the interface and follows a **component-based structure** to facilitate code reuse and maintenance.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎯 Project Goal
+
+The goal of this project is to practice and demonstrate knowledge in:
+
+- React
+- Reusable components
+- State management
+- React Router
+- Dynamic list rendering
+- Event handling
+
+---
+
+## 🛠 Technologies Used
+
+- React
+- JavaScript (ES6)
+- HTML5
+- CSS3
+- React Router
+
+---
+
+## 👨‍💻 Author
+
+**Bryan Santiago Paucarima Franco**  
+Frontend Developer
+
+- GitHub: [bryanpf93](https://github.com/bryanpf93)
+- LinkedIn: [Bryan Santiago Paucarima Franco](https://www.linkedin.com/in/bryanpf93/)
