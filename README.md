@@ -1,6 +1,6 @@
 # KANBAN
 
-![DEMO](assets/images/Animation.gif)
+![Gameplay](src/assets/images/Animation.gif)
 
 This project is a **web-based task management application** using the **Kanban method**, which allows users to organize work into different stages to improve productivity and task tracking.
 
