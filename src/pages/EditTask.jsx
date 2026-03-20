@@ -37,7 +37,7 @@ function EditTask({ tasksArray, onUpdate }) {
                     <h2>EDIT TASK: </h2>
 
                     <label>
-                        TITLE:
+                        <strong>TITLE:</strong>TITLE:
                         <input
                             name="title"
                             type="text"
@@ -81,7 +81,7 @@ function EditTask({ tasksArray, onUpdate }) {
                     </label>
                     <div>
                         <button type="submit">SAVE CHANGES</button>
-                        <button type="button" onClick={() => navigate("/")}>CANCEL</button>
+                        <button type="button" onClick={() => navigate(`/tasks/${taskId}`)}>CANCEL</button>
                     </div>
 
                 </div>
