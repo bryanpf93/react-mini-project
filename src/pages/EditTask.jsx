@@ -37,7 +37,7 @@ function EditTask({ tasksArray, onUpdate }) {
                     <h2>EDIT TASK: </h2>
 
                     <label>
-                        <strong>TITLE:</strong>TITLE:
+                        <strong>Title: </strong>
                         <input
                             name="title"
                             type="text"
@@ -47,7 +47,7 @@ function EditTask({ tasksArray, onUpdate }) {
                     </label>
 
                     <label>
-                        DESCRIPTION:
+                        <strong>Description: </strong>
                         <input
                             name="description"
                             type="text"
@@ -57,7 +57,7 @@ function EditTask({ tasksArray, onUpdate }) {
                     </label>
 
                     <label>
-                        ASSIGNEE:
+                        <strong>Assignee: </strong>
                         <input
                             name="assignee"
                             type="text"
@@ -67,7 +67,7 @@ function EditTask({ tasksArray, onUpdate }) {
                     </label>
 
                     <label>
-                        PRIORITY:
+                        <strong>Priority: </strong>
                         <select
                             name="priority"
                             value={priority}

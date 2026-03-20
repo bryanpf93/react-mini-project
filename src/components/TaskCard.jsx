@@ -4,14 +4,14 @@ function TaskCard({ taskDetails, onUpdateStatus }) {
     return (
         <div className="card">
             <h2>{taskDetails.title} </h2>
-            <p>Status: {taskDetails.status} {
+            <p><strong>Status:</strong> {taskDetails.status} {
                 taskDetails.status === "To Do"
                     ? "📋"
                     : taskDetails.status === "In Progress"
                         ? "⏳"
                         : "✅"
             }</p>
-            <p>Priority: {taskDetails.priority}{
+            <p><strong>Priority: </strong>{taskDetails.priority}{
                 taskDetails.priority === "Low"
                     ? "🟢"
                     : taskDetails.priority === "Medium"

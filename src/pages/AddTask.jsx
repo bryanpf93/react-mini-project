@@ -42,7 +42,7 @@ function AddTask({onCreate}) {
                     <h2>ADD TASK: </h2>
 
                     <label>
-                        TITLE: 
+                        <strong>Title: </strong> 
                         <input
                             name="title"
                             type="text"
@@ -53,7 +53,7 @@ function AddTask({onCreate}) {
                     </label>
 
                     <label>
-                        DESCRIPTION:
+                        <strong>Description: </strong>
                         <input
                             name="description"
                             type="text"
@@ -64,7 +64,7 @@ function AddTask({onCreate}) {
                     </label>
 
                     <label>
-                        ASSIGNEE: 
+                        <strong>Assignee: </strong>
                         <input
                             name="assignee"
                             type="text"
@@ -75,7 +75,7 @@ function AddTask({onCreate}) {
                     </label>
 
                     <label>
-                        PRIORITY: 
+                        <strong>Priority:  </strong>
                         <select
                             name="priority"
                             value={priority}

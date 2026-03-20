@@ -31,16 +31,16 @@ function TaskDetails({ tasksArray, onDelete }) {
     return (
         <div className="task-details">
             <h1>{task.title}</h1>
-            <p>ASSIGNEE: {task.assignee}</p>
-            <p>DESCRIPTION: {task.description}</p>
-            <p>STATUS: {task.status} {
+            <p>👤 <strong>Assignee: </strong>{task.assignee.toUpperCase()}</p>
+            <p>📝 <strong>Description: </strong>{task.description}</p>
+            <p>📊 <strong>Status: </strong>{task.status} {
                 task.status === "To Do"
                     ? "📋"
                     : task.status === "In Progress"
                         ? "⏳"
                         : "✅"
             }</p>
-            <p>PRIORITY: {task.priority}{
+            <p>⚡ <strong>Priority: </strong>{task.priority}{
                 task.priority === "Low"
                     ? "🟢"
                     : task.priority === "Medium"
@@ -48,8 +48,8 @@ function TaskDetails({ tasksArray, onDelete }) {
                         : "🔴"
             }
             </p>
-            <p>CREATE DATE: {task.createdDate}</p>
-            <p>DUE DATE: {task.dueDate}</p>
+            <p><strong>Create Date: </strong>{task.createdDate}</p>
+            <p><strong>Due Date: </strong>{task.dueDate}</p>
 
             <div>
                 <button onClick={() => setShowDeleteModal(true)}>DELETE</button>
